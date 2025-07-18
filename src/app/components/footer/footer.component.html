@@ -1,0 +1,35 @@
+<div class="absolute bottom-1 left-1 right-1 overflow-hidden"
+     [ngStyle]="{
+       backgroundColor: 'rgba(255, 255, 255, 0.7)',
+       backdropFilter: 'blur(8px)',
+       height: '44px',
+       borderRadius: 'var(--radius)',
+       border: '1px solid rgba(255, 255, 255, 0.2)'
+     }">
+  <div class="flex flex-wrap items-center justify-center gap-4 md:gap-8 h-full px-4">
+    <ng-container *ngFor="let link of footerLinks; let i = index">
+      <div class="flex items-center gap-4 md:gap-8">
+        <button 
+          class="bg-transparent border-0 cursor-pointer p-0 transition-colors hover:opacity-75"
+          (click)="onLinkClick(link)"
+          [ngStyle]="{
+            color: 'var(--foreground)',
+            fontSize: 'var(--text-sm)',
+            fontWeight: 'var(--font-weight-normal)',
+            lineHeight: '1.5'
+          }">
+          {{ link }}
+        </button>
+        <div 
+          *ngIf="i < footerLinks.length - 1"
+          class="hidden sm:block"
+          [ngStyle]="{
+            backgroundColor: 'var(--primary)',
+            height: '29px',
+            width: '1px'
+          }">
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div> 

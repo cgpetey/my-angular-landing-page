@@ -1,0 +1,12 @@
+<button
+  mat-raised-button
+  [color]="matButtonColor"
+  [type]="type"
+  [disabled]="disabled || loading"
+  [class]="className"
+  [attr.data-slot]="'button'"
+  (click)="onClick($event)"
+>
+  <mat-icon *ngIf="loading" class="animate-spin">refresh</mat-icon>
+  <ng-content></ng-content>
+</button> 

@@ -1,0 +1,13 @@
+<mat-checkbox
+  [id]="id"
+  [disabled]="disabled"
+  [checked]="checked"
+  [color]="color"
+  [class]="className"
+  [attr.data-slot]="'checkbox'"
+  (change)="onCheckboxChange($event.checked)"
+  (blur)="onBlur()"
+>
+  <span *ngIf="label">{{ label }}</span>
+  <ng-content *ngIf="!label"></ng-content>
+</mat-checkbox> 
