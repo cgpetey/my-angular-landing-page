@@ -7,20 +7,17 @@
        border: '1px solid rgba(255, 255, 255, 0.2)'
      }">
   <div class="flex flex-wrap items-center justify-center gap-4 md:gap-8 h-full px-4">
-    <ng-container *ngFor="let link of footerLinks; let i = index">
-      <div class="flex items-center gap-4 md:gap-8">
-        <button 
-          class="bg-transparent border-0 cursor-pointer p-0 transition-colors hover:opacity-75"
-          (click)="onLinkClick(link)"
-          [ngStyle]="{
+    <ng-container *ngFor="let linkItem of footerLinks; let i = index"> <div class="flex items-center gap-4 md:gap-8">
+        <a
+          [href]="linkItem.url"        target="_blank"             rel="noopener noreferrer"   class="bg-transparent border-0 cursor-pointer p-0 transition-colors hover:opacity75"
+          (click)="onLinkClick(linkItem)" [ngStyle]="{
             color: 'var(--foreground)',
             fontSize: 'var(--text-sm)',
             fontWeight: 'var(--font-weight-normal)',
             lineHeight: '1.5'
           }">
-          {{ link }}
-        </button>
-        <div 
+          {{ linkItem.text }}         </a>
+        <div
           *ngIf="i < footerLinks.length - 1"
           class="hidden sm:block"
           [ngStyle]="{
@@ -32,4 +29,4 @@
       </div>
     </ng-container>
   </div>
-</div> 
+</div>

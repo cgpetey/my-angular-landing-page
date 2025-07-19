@@ -10,15 +10,18 @@ import { CommonModule } from '@angular/common';
 })
 export class FooterComponent {
   footerLinks = [
-    'Rules of Conduct',
-    'Privacy Policy',
-    'About Us', 
-    'FAQ',
-    'Website Feedback'
+    { text: 'Rules of Conduct', url: 'https://app-dev.membersports.com/rules-of-conduct' },
+    { text: 'Privacy Policy', url: 'https://app-dev.membersports.com/privacy-policy' },
+    { text: 'About Us', url: 'https://app-dev.membersports.com/about-us' },
+    { text: 'FAQ', url: 'https://app-dev.membersports.com/faq' },
+    { text: 'Website Feedback', url: 'https://app-dev.membersports.com/contact-us' } // Assuming this is your contact link
   ];
 
-  onLinkClick(link: string): void {
-    console.log('Footer link clicked:', link);
-    // Here you would typically navigate to the respective page
+  // onLinkClick method is still useful for tracking or other logic,
+  // but the primary navigation will be via href.
+  onLinkClick(linkItem: { text: string, url: string }): void {
+    console.log('Footer link clicked:', linkItem.text);
+    // You could still add custom logic here before the browser navigates
+    // For example, sending analytics events.
   }
-} 
+}
