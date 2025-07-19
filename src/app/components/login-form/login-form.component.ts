@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CardComponent } from '../ui/card/card.component';
@@ -23,6 +23,8 @@ import { CheckboxComponent } from '../ui/checkbox/checkbox.component';
   styleUrl: './login-form.component.css'
 })
 export class LoginFormComponent {
+  @Output() loginCancel = new EventEmitter<void>();
+  
   private fb = inject(FormBuilder);
   
   loginForm: FormGroup;
@@ -74,6 +76,7 @@ export class LoginFormComponent {
     this.forgotPasswordForm.reset();
     this.showForgotPassword = false;
     this.isLoading = false;
+    this.loginCancel.emit();
   }
 
   toggleForgotPassword(): void {

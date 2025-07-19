@@ -11,7 +11,9 @@
           <svg class="block size-full"
                fill="none"
                preserveAspectRatio="none"
-               viewBox="0 0 55 28">
+               viewBox="0 0 55 28"
+               role="img"
+               aria-label="MS Logo">
             <g id="MS_MLogo">
               <path [attr.d]="getMsLogoPath()" fill="white" id="Vector" />
             </g>
@@ -24,7 +26,9 @@
           <svg class="block size-full"
                fill="none"
                preserveAspectRatio="none"
-               viewBox="0 0 234 19">
+               viewBox="0 0 234 19"
+               role="img"
+               aria-label="MemberSports Logo">
             <g id="MS_MemberSportsType">
               <g id="Vector">
                 <path [attr.d]="memberSportsPaths.p45d8c80" fill="white" />
@@ -47,14 +51,22 @@
       
       <!-- Login Section -->
       <div class="flex flex-row items-center relative shrink-0"
-           style="gap: 8px; color: white">
-        <!-- User Icon -->
+           style="gap: 8px; color: white; cursor: pointer"
+           role="button"
+           tabindex="0"
+           aria-label="Login to your account"
+           (click)="onLoginClick()"
+           (keydown.enter)="onLoginClick()"
+           (keydown.space)="onLoginClick()">
+        
         <div class="relative shrink-0"
              style="width: 32px; height: 32px">
           <svg class="block size-full"
                fill="none"
                viewBox="0 0 24 24"
                stroke="white"
+               role="img"
+               aria-label="User icon"
                [attr.stroke-width]="1.5">
             <path stroke-linecap="round"
                   stroke-linejoin="round"

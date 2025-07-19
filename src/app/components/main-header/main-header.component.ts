@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SvgPathsService } from '../../services/svg-paths.service';
 
@@ -10,7 +10,13 @@ import { SvgPathsService } from '../../services/svg-paths.service';
   styleUrl: './main-header.component.css'
 })
 export class MainHeaderComponent {
+  @Output() loginClick = new EventEmitter<void>();
+  
   private svgPathsService = inject(SvgPathsService);
+
+  onLoginClick(): void {
+    this.loginClick.emit();
+  }
 
   getMsLogoPath(): string {
     return this.svgPathsService.getSvgPath('pe07c4f0');

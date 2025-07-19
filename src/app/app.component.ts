@@ -21,4 +21,13 @@ import { LocationTextComponent } from './components/location-text/location-text.
 export class AppComponent {
   title = 'my-angular-landing-page';
   backgroundImageUrl = '/CoyoteCreekBG.webp';
+  showLoginForm = false;
+
+  onLoginClick(): void {
+    this.showLoginForm = true;
+  }
+
+  onLoginCancel(): void {
+    this.showLoginForm = false;
+  }
 }
