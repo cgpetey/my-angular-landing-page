@@ -1,0 +1,31 @@
+/* CreateAccount styles are handled via Tailwind CSS classes and inline styles */
+
+/* Placeholder text styling */
+input::placeholder {
+  color: #555555 !important;
+  opacity: 1;
+}
+
+/* For older browsers */
+input::-webkit-input-placeholder {
+  color: #555555 !important;
+}
+
+input::-moz-placeholder {
+  color: #555555 !important;
+  opacity: 1;
+}
+
+input:-ms-input-placeholder {
+  color: #555555 !important;
+}
+
+input:-moz-placeholder {
+  color: #555555 !important;
+  opacity: 1;
+}
+
+/* Password visibility button hover effect */
+button:hover svg {
+  color: #333;
+} 

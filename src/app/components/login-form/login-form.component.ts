@@ -24,6 +24,7 @@ import { CheckboxComponent } from '../ui/checkbox/checkbox.component';
 })
 export class LoginFormComponent {
   @Output() loginCancel = new EventEmitter<void>();
+  @Output() createAccountClick = new EventEmitter<void>();
   
   private fb = inject(FormBuilder);
   
@@ -82,5 +83,9 @@ export class LoginFormComponent {
   toggleForgotPassword(): void {
     this.showForgotPassword = !this.showForgotPassword;
     this.isLoading = false;
+  }
+
+  toggleCreateAccount(): void {
+    this.createAccountClick.emit();
   }
 } 

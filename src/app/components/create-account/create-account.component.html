@@ -1,0 +1,146 @@
+<div class="flex-1 flex items-center justify-center relative z-10 p-4">
+  <div class="backdrop-blur-lg bg-white/60 border border-white/30 rounded-2xl shadow-2xl" 
+       style="backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); width: 500px; min-height: 450px;">
+    <div style="padding: 24px; height: 100%; display: flex; flex-direction: column;">
+      
+      <!-- Create Account Form -->
+      <form [formGroup]="createAccountForm" (ngSubmit)="onCreateAccount()" style="height: 100%; display: flex; flex-direction: column;">
+        <!-- Header Section -->
+        <div class="text-center" style="margin-bottom: 20px;">
+          <h1 style="font-family: 'Open Sans', sans-serif; font-size: 18px; font-weight: 400; color: #101A25; margin: 0; line-height: 1.2;">Create Your Account</h1>
+        </div>
+        
+        <!-- Input Fields Section -->
+        <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 12px;">
+          <!-- Email -->
+          <div>
+            <input
+              formControlName="email"
+              type="email"
+              placeholder="Email address"
+              style="width: 100%; height: 40px; padding: 0 12px; background: rgba(255, 255, 255, 1); border: 1px solid rgba(255, 255, 255, 0.5); color: #101A25; border-radius: 6px; font-family: 'Open Sans', sans-serif; font-size: 14px; outline: none; box-sizing: border-box;"
+            />
+            <div *ngIf="createAccountForm.get('email')?.invalid && createAccountForm.get('email')?.touched" 
+                 style="color: #dc2626; font-size: 12px; margin-top: 4px;">
+              <span *ngIf="createAccountForm.get('email')?.errors?.['required']">Email is required</span>
+              <span *ngIf="createAccountForm.get('email')?.errors?.['email']">Please enter a valid email</span>
+            </div>
+          </div>
+          
+          <!-- First Name and Last Name Row -->
+          <div style="display: flex; gap: 8px;">
+            <div style="flex: 1;">
+              <input
+                formControlName="firstName"
+                type="text"
+                placeholder="First name"
+                style="width: 100%; height: 40px; padding: 0 12px; background: rgba(255, 255, 255, 1); border: 1px solid rgba(255, 255, 255, 0.5); color: #101A25; border-radius: 6px; font-family: 'Open Sans', sans-serif; font-size: 14px; outline: none; box-sizing: border-box;"
+              />
+              <div *ngIf="createAccountForm.get('firstName')?.invalid && createAccountForm.get('firstName')?.touched" 
+                   style="color: #dc2626; font-size: 12px; margin-top: 4px;">
+                First name is required
+              </div>
+            </div>
+            
+            <div style="flex: 1;">
+              <input
+                formControlName="lastName"
+                type="text"
+                placeholder="Last name"
+                style="width: 100%; height: 40px; padding: 0 12px; background: rgba(255, 255, 255, 1); border: 1px solid rgba(255, 255, 255, 0.5); color: #101A25; border-radius: 6px; font-family: 'Open Sans', sans-serif; font-size: 14px; outline: none; box-sizing: border-box;"
+              />
+              <div *ngIf="createAccountForm.get('lastName')?.invalid && createAccountForm.get('lastName')?.touched" 
+                   style="color: #dc2626; font-size: 12px; margin-top: 4px;">
+                Last name is required
+              </div>
+            </div>
+          </div>
+          
+          <!-- Mobile Phone -->
+          <div>
+            <input
+              formControlName="mobilePhone"
+              type="tel"
+              placeholder="Mobile phone"
+              style="width: 100%; height: 40px; padding: 0 12px; background: rgba(255, 255, 255, 1); border: 1px solid rgba(255, 255, 255, 0.5); color: #101A25; border-radius: 6px; font-family: 'Open Sans', sans-serif; font-size: 14px; outline: none; box-sizing: border-box;"
+            />
+            <div *ngIf="createAccountForm.get('mobilePhone')?.invalid && createAccountForm.get('mobilePhone')?.touched" 
+                 style="color: #dc2626; font-size: 12px; margin-top: 4px;">
+              Mobile phone is required
+            </div>
+          </div>
+          
+          <!-- Password -->
+          <div style="position: relative;">
+            <input
+              formControlName="password"
+              [type]="showPassword ? 'text' : 'password'"
+              placeholder="Password (min. 8 characters)"
+              style="width: 100%; height: 40px; padding: 0 12px; background: rgba(255, 255, 255, 1); border: 1px solid rgba(255, 255, 255, 0.5); color: #101A25; border-radius: 6px; font-family: 'Open Sans', sans-serif; font-size: 14px; outline: none; box-sizing: border-box; padding-right: 40px;"
+            />
+            <button
+              type="button"
+              (click)="togglePasswordVisibility()"
+              style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; color: #666; cursor: pointer; font-size: 14px;"
+            >
+              {{ showPassword ? '👁️' : '👁️‍🗨️' }}
+            </button>
+            <div *ngIf="createAccountForm.get('password')?.invalid && createAccountForm.get('password')?.touched" 
+                 style="color: #dc2626; font-size: 12px; margin-top: 4px;">
+              <span *ngIf="createAccountForm.get('password')?.errors?.['required']">Password is required</span>
+              <span *ngIf="createAccountForm.get('password')?.errors?.['minlength']">Password must be at least 8 characters</span>
+            </div>
+          </div>
+          
+          <!-- Confirm Password -->
+          <div style="position: relative;">
+            <input
+              formControlName="confirmPassword"
+              [type]="showConfirmPassword ? 'text' : 'password'"
+              placeholder="Confirm password"
+              style="width: 100%; height: 40px; padding: 0 12px; background: rgba(255, 255, 255, 1); border: 1px solid rgba(255, 255, 255, 0.5); color: #101A25; border-radius: 6px; font-family: 'Open Sans', sans-serif; font-size: 14px; outline: none; box-sizing: border-box; padding-right: 40px;"
+            />
+            <button
+              type="button"
+              (click)="toggleConfirmPasswordVisibility()"
+              style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; color: #666; cursor: pointer; font-size: 14px;"
+            >
+              {{ showConfirmPassword ? '👁️' : '👁️‍🗨️' }}
+            </button>
+            <div *ngIf="createAccountForm.get('confirmPassword')?.invalid && createAccountForm.get('confirmPassword')?.touched" 
+                 style="color: #dc2626; font-size: 12px; margin-top: 4px;">
+              Confirm password is required
+            </div>
+          </div>
+          
+          <!-- Password Mismatch Error -->
+          <div *ngIf="createAccountForm.errors?.['passwordMismatch'] && createAccountForm.get('confirmPassword')?.touched" 
+               style="color: #dc2626; font-size: 12px;">
+            Passwords do not match
+          </div>
+        </div>
+        
+        <!-- Button Section -->
+        <div style="display: flex; gap: 8px; margin-top: 16px; justify-content: flex-end;">
+          <button
+            type="button"
+            (click)="onCancel()"
+            [disabled]="isLoading"
+            style="padding: 0 20px; height: 32px; border: 1px solid #132233; color: #132233; background: rgba(255, 255, 255, 0.7); border-radius: 16px; font-family: 'Open Sans', sans-serif; font-weight: 400; font-size: 14px; cursor: pointer; white-space: nowrap; display: flex; align-items: center; justify-content: center;"
+          >
+            CANCEL
+          </button>
+          
+          <button
+            type="submit"
+            [disabled]="!createAccountForm.valid || isLoading"
+            style="padding: 0 20px; height: 32px; border: 1px solid #2A415B; color: white; background: #2A415B; border-radius: 16px; font-family: 'Open Sans', sans-serif; font-weight: 400; font-size: 14px; cursor: pointer; white-space: nowrap; display: flex; align-items: center; justify-content: center;"
+          >
+            {{ isLoading ? 'CREATING...' : 'CREATE ACCOUNT' }}
+          </button>
+        </div>
+      </form>
+      
+    </div>
+  </div>
+</div>

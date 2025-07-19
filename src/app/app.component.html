@@ -13,7 +13,17 @@
     <div class="flex flex-col items-center justify-center flex-1">
       
       <!-- Login Form -->
-      <app-login-form *ngIf="showLoginForm" (loginCancel)="onLoginCancel()"></app-login-form>
+      <app-login-form 
+        *ngIf="showLoginForm" 
+        (loginCancel)="onLoginCancel()"
+        (createAccountClick)="onCreateAccountClick()">
+      </app-login-form>
+      
+      <!-- Create Account Form -->
+      <app-create-account 
+        *ngIf="showCreateAccount" 
+        (createAccountCancel)="onCreateAccountCancel()">
+      </app-create-account>
       
     </div>
     

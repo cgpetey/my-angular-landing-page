@@ -4,6 +4,7 @@ import { MainHeaderComponent } from './components/main-header/main-header.compon
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LocationTextComponent } from './components/location-text/location-text.component';
+import { CreateAccountComponent } from './components/create-account/create-account.component';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,7 @@ import { LocationTextComponent } from './components/location-text/location-text.
     CommonModule,
     MainHeaderComponent,
     LoginFormComponent,
+    CreateAccountComponent,
     FooterComponent,
     LocationTextComponent
   ],
@@ -22,12 +24,25 @@ export class AppComponent {
   title = 'my-angular-landing-page';
   backgroundImageUrl = '/CoyoteCreekBG.webp';
   showLoginForm = false;
+  showCreateAccount = false;
 
   onLoginClick(): void {
     this.showLoginForm = true;
+    this.showCreateAccount = false;
   }
 
   onLoginCancel(): void {
     this.showLoginForm = false;
+    this.showCreateAccount = false;
+  }
+
+  onCreateAccountClick(): void {
+    this.showLoginForm = false;
+    this.showCreateAccount = true;
+  }
+
+  onCreateAccountCancel(): void {
+    this.showCreateAccount = false;
+    this.showLoginForm = true;
   }
 }
