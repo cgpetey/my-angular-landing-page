@@ -1,126 +1,123 @@
 <div class="flex-1 flex items-center justify-center relative z-10 p-4">
-  <app-card class="w-full max-w-sm card backdrop-blur-md bg-white/90 dark:bg-gray-900/90 border border-white/20">
-    <app-card-content class="p-6">
+  <div class="backdrop-blur-lg bg-white/60 border border-white/30 rounded-2xl shadow-2xl" 
+       style="backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); width: 446px; height: 301px;">
+    <div style="padding: 24px; height: 100%; display: flex; flex-direction: column;">
       
       <!-- Login Form -->
-      <form *ngIf="!showForgotPassword" [formGroup]="loginForm" (ngSubmit)="onLogin()" class="space-y-4">
-        <div class="space-y-2 text-center">
-          <h1 class="text-2xl font-bold tracking-tight">Sign In</h1>
-          <p class="text-sm text-muted-foreground">Enter your credentials to access your account</p>
+      <form *ngIf="!showForgotPassword" [formGroup]="loginForm" (ngSubmit)="onLogin()" style="height: 100%; display: flex; flex-direction: column;">
+        <!-- Header Section -->
+        <div class="text-center" style="margin-bottom: 20px;">
+          <h1 style="font-family: 'Open Sans', sans-serif; font-size: 18px; font-weight: 400; color: #101A25; margin: 0; line-height: 1.2;">Login to Your Account</h1>
         </div>
         
-        <div class="space-y-4">
-          <app-input
-            formControlName="emailOrPhone"
-            type="email"
-            label="Email or Phone"
-            placeholder="Enter your email or phone number"
-            appearance="outline"
-            className="w-full"
-          ></app-input>
+        <!-- Input Fields Section -->
+        <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 12px;">
+          <div>
+            <input
+              formControlName="emailOrPhone"
+              type="email"
+              placeholder="Phone number / Email address"
+              style="width: 100%; height: 40px; padding: 0 12px; background: rgba(255, 255, 255, 0.7); border: 1px solid rgba(255, 255, 255, 0.5); color: #101A25; border-radius: 6px; font-family: 'Open Sans', sans-serif; font-size: 14px; outline: none; box-sizing: border-box;"
+            />
+          </div>
           
-          <app-input
-            formControlName="password"
-            type="password"
-            label="Password"
-            placeholder="Enter your password"
-            appearance="outline"
-            className="w-full"
-          ></app-input>
+          <div>
+            <input
+              formControlName="password"
+              type="password"
+              placeholder="Password"
+              style="width: 100%; height: 40px; padding: 0 12px; background: rgba(255, 255, 255, 0.7); border: 1px solid rgba(255, 255, 255, 0.5); color: #101A25; border-radius: 6px; font-family: 'Open Sans', sans-serif; font-size: 14px; outline: none; box-sizing: border-box;"
+            />
+          </div>
           
-          <div class="flex items-center justify-between">
-            <app-checkbox
-              formControlName="rememberMe"
-              id="remember-me"
-              label="Remember me"
-              color="primary"
-            ></app-checkbox>
+          <!-- Remember me and Forgot password row -->
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+            <label style="display: flex; align-items: center; font-family: 'Open Sans', sans-serif; font-size: 12px; color: #101A25; cursor: pointer;">
+              <input 
+                type="checkbox" 
+                formControlName="rememberMe"
+                style="margin-right: 6px; width: 14px; height: 14px;"
+              />
+              Remember me
+            </label>
             
             <button
               type="button"
               (click)="toggleForgotPassword()"
-              class="text-sm text-primary hover:underline"
+              style="background: none; border: none; color: #0A52A1; font-family: 'Open Sans', sans-serif; font-size: 12px; text-decoration: underline; cursor: pointer; padding: 0;"
             >
               Forgot password?
             </button>
           </div>
         </div>
         
-        <div class="space-y-2">
-          <app-button
-            type="submit"
-            variant="default"
-            size="default"
-            [disabled]="!loginForm.valid || isLoading"
-            [loading]="isLoading"
-            className="w-full"
-          >
-            {{ isLoading ? 'Signing in...' : 'Sign In' }}
-          </app-button>
-          
-          <app-button
+        <!-- Button Section -->
+        <div style="display: flex; gap: 8px; margin-top: 16px;">
+          <button
             type="button"
-            variant="outline"
-            size="default"
             (click)="onCancel()"
-            className="w-full"
+            style="padding: 0 20px; height: 32px; border: 1px solid #132233; color: #132233; background: rgba(255, 255, 255, 0.7); border-radius: 16px; font-family: 'Open Sans', sans-serif; font-weight: 400; font-size: 14px; cursor: pointer; white-space: nowrap; display: flex; align-items: center; justify-content: center;"
           >
-            Cancel
-          </app-button>
-        </div>
-        
-        <div class="text-center">
-          <p class="text-sm text-muted-foreground">
-            Don't have an account?
-            <button type="button" class="text-primary hover:underline ml-1">
-              Create Account
-            </button>
-          </p>
+            CANCEL
+          </button>
+          
+          <button
+            type="button"
+            style="padding: 0 20px; height: 32px; border: 1px solid #132233; color: #132233; background: rgba(255, 255, 255, 0.7); border-radius: 16px; font-family: 'Open Sans', sans-serif; font-weight: 400; font-size: 14px; cursor: pointer; white-space: nowrap; display: flex; align-items: center; justify-content: center;"
+          >
+            CREATE ACCOUNT
+          </button>
+          
+          <button
+            type="submit"
+            [disabled]="!loginForm.valid || isLoading"
+            style="padding: 0 20px; height: 32px; border: 1px solid #2A415B; color: white; background: #2A415B; border-radius: 16px; font-family: 'Open Sans', sans-serif; font-weight: 400; font-size: 14px; cursor: pointer; white-space: nowrap; display: flex; align-items: center; justify-content: center; disabled:opacity-50;"
+          >
+            LOGIN
+          </button>
         </div>
       </form>
       
       <!-- Forgot Password Form -->
-      <form *ngIf="showForgotPassword" [formGroup]="forgotPasswordForm" (ngSubmit)="onForgotPassword()" class="space-y-4">
-        <div class="space-y-2 text-center">
-          <h1 class="text-2xl font-bold tracking-tight">Reset Password</h1>
-          <p class="text-sm text-muted-foreground">Enter your email to receive a reset link</p>
+      <form *ngIf="showForgotPassword" [formGroup]="forgotPasswordForm" (ngSubmit)="onForgotPassword()" style="height: 100%; display: flex; flex-direction: column;">
+        <!-- Header Section -->
+        <div class="text-center" style="margin-bottom: 20px;">
+          <h1 style="font-family: 'Open Sans', sans-serif; font-size: 18px; font-weight: 400; color: #101A25; margin: 0; line-height: 1.2;">Reset Password</h1>
+          <p style="font-family: 'Open Sans', sans-serif; font-size: 12px; color: #101A25; margin: 8px 0 0 0;">Enter your email to receive reset instructions</p>
         </div>
         
-        <div class="space-y-4">
-          <app-input
-            formControlName="emailOrPhone"
-            type="email"
-            label="Email or Phone"
-            placeholder="Enter your email or phone number"
-            appearance="outline"
-            className="w-full"
-          ></app-input>
+        <!-- Input Fields Section -->
+        <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+          <div>
+            <input
+              formControlName="email"
+              type="email"
+              placeholder="Email address"
+              style="width: 100%; height: 40px; padding: 0 12px; background: rgba(255, 255, 255, 0.7); border: 1px solid rgba(255, 255, 255, 0.5); color: #101A25; border-radius: 6px; font-family: 'Open Sans', sans-serif; font-size: 14px; outline: none; box-sizing: border-box;"
+            />
+          </div>
         </div>
         
-        <div class="space-y-2">
-          <app-button
-            type="submit"
-            variant="default"
-            size="default"
-            [disabled]="!forgotPasswordForm.valid || isLoading"
-            [loading]="isLoading"
-            className="w-full"
-          >
-            {{ isLoading ? 'Sending...' : 'Send Reset Link' }}
-          </app-button>
-          
-          <app-button
+        <!-- Button Section -->
+        <div style="display: flex; gap: 8px; margin-top: 16px;">
+          <button
             type="button"
-            variant="outline"
-            size="default"
             (click)="toggleForgotPassword()"
-            className="w-full"
+            style="padding: 0 20px; height: 32px; border: 1px solid #132233; color: #132233; background: rgba(255, 255, 255, 0.7); border-radius: 16px; font-family: 'Open Sans', sans-serif; font-weight: 400; font-size: 14px; cursor: pointer; white-space: nowrap; display: flex; align-items: center; justify-content: center;"
           >
-            Back to Sign In
-          </app-button>
+            BACK TO SIGN IN
+          </button>
+          
+          <button
+            type="submit"
+            [disabled]="!forgotPasswordForm.valid || isLoading"
+            style="padding: 0 20px; height: 32px; border: 1px solid #2A415B; color: white; background: #2A415B; border-radius: 16px; font-family: 'Open Sans', sans-serif; font-weight: 400; font-size: 14px; cursor: pointer; white-space: nowrap; display: flex; align-items: center; justify-content: center; disabled:opacity-50;"
+          >
+            SEND RESET EMAIL
+          </button>
         </div>
       </form>
       
-    </app-card-content>
-  </app-card>
+    </div>
+  </div>
 </div> 

@@ -1,2 +1,17 @@
 /* App component styles are primarily handled via Tailwind CSS classes and global styles */
 /* The animated-background class is defined in the global styles.css */
+
+/* Debug styles to ensure background is visible */
+.debug-background {
+  background-color: red !important;
+  min-height: 100vh;
+}
+
+/* Main background styling - using public folder */
+.background-container {
+  background: url('/CoyoteCreekBG.jpg') no-repeat center center;
+  background-size: cover;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+}

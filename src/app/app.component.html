@@ -1,36 +1,30 @@
-<div class="relative min-h-screen bg-center bg-cover bg-no-repeat overflow-hidden animated-background"
-     [ngStyle]="{ backgroundColor: 'var(--background)' }">
-  
-  <!-- Animated background image -->
-  <div class="absolute inset-0 animated-background"
-       [ngStyle]="{
-         backgroundImage: 'url(/assets/images/backgrounds/CoyoteCreekBG.jpg)',
-         backgroundSize: 'cover',
-         backgroundPosition: 'center',
-         backgroundRepeat: 'no-repeat'
-       }">
-  </div>
+<div class="relative min-h-screen overflow-hidden" 
+     style="background: url('/CoyoteCreekBG.jpg') no-repeat center center; background-size: cover; min-height: 100vh;">
   
   <!-- Main content overlay -->
-  <div class="relative min-h-screen">
-    <div class="flex flex-col items-start justify-start relative min-h-screen"
-         [ngStyle]="{
-           gap: '10px',
-           padding: '4px'
-         }">
-      
-      <!-- Header -->
+  <div class="relative min-h-screen z-10 flex flex-col">
+    
+    <!-- Header - With margin from browser edges -->
+    <div style="margin: 4px;">
       <app-main-header></app-main-header>
+    </div>
+    
+    <!-- Content container - Now centers vertically -->
+    <div class="flex flex-col items-center justify-center flex-1">
       
       <!-- Login Form -->
       <app-login-form></app-login-form>
       
+    </div>
+    
+    <!-- Footer and Location Text at bottom -->
+    <div class="flex flex-col items-center" style="gap: 10px; padding: 4px;">
       <!-- Location Text -->
       <app-location-text></app-location-text>
       
       <!-- Footer -->
       <app-footer></app-footer>
-      
     </div>
+    
   </div>
 </div>

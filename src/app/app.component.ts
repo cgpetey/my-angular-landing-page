@@ -20,4 +20,5 @@ import { LocationTextComponent } from './components/location-text/location-text.
 })
 export class AppComponent {
   title = 'my-angular-landing-page';
+  backgroundImageUrl = '/CoyoteCreekBG.jpg';
 }
