@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MainHeaderComponent } from './components/main-header/main-header.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
-import { FooterComponent } from './components/footer/footer.component';
+//import { FooterComponent } from './components/footer/footer.component';
 import { LocationTextComponent } from './components/location-text/location-text.component';
 import { CreateAccountComponent } from './components/create-account/create-account.component';
 
@@ -14,7 +14,7 @@ import { CreateAccountComponent } from './components/create-account/create-accou
     MainHeaderComponent,
     LoginFormComponent,
     CreateAccountComponent,
-    FooterComponent,
+    //FooterComponent,
     LocationTextComponent
   ],
   templateUrl: './app.component.html',
