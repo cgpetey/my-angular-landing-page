@@ -81,9 +81,9 @@
             <button
               type="button"
               (click)="togglePasswordVisibility()"
-              style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; color: #666; cursor: pointer; font-size: 14px;"
+              style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; color: #666; cursor: pointer; display: flex; align-items: center; justify-content: center; width: 20px; height: 20px;"
             >
-              {{ showPassword ? '👁️' : '👁️‍🗨️' }}
+              <mat-icon style="font-size: 16px; width: 16px; height: 16px;">{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
             </button>
             <div *ngIf="createAccountForm.get('password')?.invalid && createAccountForm.get('password')?.touched" 
                  style="color: #dc2626; font-size: 12px; margin-top: 4px;">
@@ -103,9 +103,9 @@
             <button
               type="button"
               (click)="toggleConfirmPasswordVisibility()"
-              style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; color: #666; cursor: pointer; font-size: 14px;"
+              style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; color: #666; cursor: pointer; display: flex; align-items: center; justify-content: center; width: 20px; height: 20px;"
             >
-              {{ showConfirmPassword ? '👁️' : '👁️‍🗨️' }}
+              <mat-icon style="font-size: 16px; width: 16px; height: 16px;">{{ showConfirmPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
             </button>
             <div *ngIf="createAccountForm.get('confirmPassword')?.invalid && createAccountForm.get('confirmPassword')?.touched" 
                  style="color: #dc2626; font-size: 12px; margin-top: 4px;">
