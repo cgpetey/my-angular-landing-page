@@ -11,7 +11,8 @@ export class BackgroundImageService {
   private availableBackgrounds: string[] = [
     '/CoyoteCreekBG.webp',
     '/FoxHollowBG.webp',
-    '/HomesteadBG.webp'
+    '/HomesteadBG.webp',
+    '/WillisCaseBG.webp'
   ];
 
   constructor() {
