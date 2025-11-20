@@ -1,0 +1,22 @@
+<div class="relative background-selector-container" *ngIf="isOpen">
+  <!-- Dropdown Menu -->
+  <div class="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-lg border border-gray-200 min-w-[200px] z-50"
+       style="max-height: 400px; overflow-y: auto;">
+    <div class="p-2">
+      <div class="text-xs font-semibold text-gray-500 uppercase px-2 py-1 mb-1">
+        Background Images
+      </div>
+      <div class="space-y-1">
+        <button *ngFor="let bg of availableBackgrounds"
+                (click)="selectBackground(bg)"
+                [class.bg-blue-50]="currentBackground === bg"
+                class="w-full text-left px-3 py-2 rounded hover:bg-gray-100 transition-colors text-sm"
+                [attr.aria-selected]="currentBackground === bg">
+          <div class="font-medium text-gray-900">{{ getDisplayName(bg) }}</div>
+          <div class="text-xs text-gray-500 truncate">{{ bg }}</div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+

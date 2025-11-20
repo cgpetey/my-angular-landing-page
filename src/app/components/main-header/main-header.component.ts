@@ -1,21 +1,36 @@
-import { Component, inject, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, inject, Output, EventEmitter, OnInit, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SvgPathsService } from '../../services/svg-paths.service';
+import { BackgroundSelectorComponent } from '../background-selector/background-selector.component';
 
 @Component({
   selector: 'app-main-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, BackgroundSelectorComponent],
   templateUrl: './main-header.component.html',
   styleUrl: './main-header.component.css'
 })
 export class MainHeaderComponent implements OnInit {
   @Output() loginClick = new EventEmitter<void>();
+  showBackgroundSelector = false;
   
   private svgPathsService = inject(SvgPathsService);
 
   onLoginClick(): void {
     this.loginClick.emit();
+  }
+
+  onMLogoClick(event: MouseEvent): void {
+    event.stopPropagation();
+    this.showBackgroundSelector = !this.showBackgroundSelector;
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent): void {
+    const target = event.target as HTMLElement;
+    if (!target.closest('.background-selector-container')) {
+      this.showBackgroundSelector = false;
+    }
   }
 
   getMsLogoPath(): string {

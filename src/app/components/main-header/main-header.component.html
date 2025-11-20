@@ -5,9 +5,11 @@
       <!-- Logo Section -->
       <div class="flex flex-row items-center relative shrink-0" 
            style="gap: 10.091px">
-        <!-- MS Logo -->
-        <div class="relative shrink-0"
-             style="height: 27.751px; width: 54.241px">
+        <!-- MS Logo - Clickable for background selector -->
+        <div class="relative shrink-0 background-selector-container"
+             style="height: 27.751px; width: 54.241px; cursor: pointer;"
+             (click)="onMLogoClick($event)"
+             title="Click M logo to change background">
           <svg class="block size-full"
                fill="none"
                preserveAspectRatio="none"
@@ -18,6 +20,10 @@
               <path [attr.d]="getMsLogoPath()" fill="white" id="Vector" />
             </g>
           </svg>
+          <!-- Background Selector Dropdown -->
+          <app-background-selector *ngIf="showBackgroundSelector"
+                                   [isOpen]="showBackgroundSelector">
+          </app-background-selector>
         </div>
         
         <!-- MemberSports Type -->
