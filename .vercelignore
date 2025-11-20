@@ -1,8 +1,8 @@
-# Dependencies
+# Dependencies - Vercel installs these automatically
 node_modules/
 npm-debug.log
 yarn-error.log
-package-lock.json
+# Note: package-lock.json should NOT be ignored - npm ci needs it!
 
 # Build outputs
 dist/
