@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MainHeaderComponent } from './components/main-header/main-header.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 //import { FooterComponent } from './components/footer/footer.component';
-import { LocationTextComponent } from './components/location-text/location-text.component';
+//import { LocationTextComponent } from './components/location-text/location-text.component';
 import { CreateAccountComponent } from './components/create-account/create-account.component';
 
 @Component({
@@ -15,7 +15,7 @@ import { CreateAccountComponent } from './components/create-account/create-accou
     LoginFormComponent,
     CreateAccountComponent,
     //FooterComponent,
-    LocationTextComponent
+    //LocationTextComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
